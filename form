@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; }
+        .container { max-width: 350px; margin: 60px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px #ccc; }
+        h2 { text-align: center; }
+        label { display: block; margin-top: 15px; }
+        input[type="email"], input[type="password"] {
+            width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;
+        }
+        .actions { margin-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .actions a { font-size: 0.95em; color: #007bff; text-decoration: none; }
+        .actions a:hover { text-decoration: underline; }
+        button { padding: 8px 16px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+        .error { color: red; margin-top: 10px; }
+        .success { color: green; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" autocomplete="off">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required>
+
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required>
+
+            <div class="actions">
+                <button type="submit">Login</button>
+                <a href="#" id="forgotLink">Forgot Password?</a>
+            </div>
+            <div class="error" id="loginError"></div>
+        </form>
+        <div style="text-align:center; margin-top:20px;">
+            <span>Don't have an account? <a href="#" id="showSignUp">Sign Up</a></span>
+        </div>
+    </div>
+
+    <div class="container" id="signup-container" style="display:none;">
+        <h2>Sign Up</h2>
+        <form id="signupForm" autocomplete="off">
+            <label for="signupName">Name</label>
+            <input type="text" id="signupName" required>
+
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" required>
+
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" required minlength="6">
+
+            <div class="actions">
+                <button type="submit">Sign Up</button>
+            </div>
+            <div class="error" id="signupError"></div>
+            <div class="success" id="signupSuccess"></div>
+        </form>
+        <div style="text-align:center; margin-top:20px;">
+            <span>Already have an account? <a href="#" id="showLogin">Login</a></span>
+        </div>
+    </div>
+
+    <div class="container" id="forgot-container" style="display:none;">
+        <h2>Forgot Password</h2>
+        <form id="forgotForm" autocomplete="off">
+            <label for="forgotEmail">Enter your email</label>
+            <input type="email" id="forgotEmail" required>
+            <div class="actions">
+                <button type="submit">Reset Password</button>
+            </div>
+            <div class="success" id="forgotSuccess"></div>
+            <div class="error" id="forgotError"></div>
+        </form>
+        <div style="text-align:center; margin-top:20px;">
+            <a href="#" id="backToLogin">Back to Login</a>
+        </div>
+    </div>
+
+    <div class="container" id="welcome-container" style="display:none;">
+        <h2>Welcome, <span id="welcomeName"></span>!</h2>
+        <div style="text-align:center; margin-top:20px;">
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        // Helper functions for localStorage user management
+        function getUsers() {
+            return JSON.parse(localStorage.getItem('users') || '[]');
+        }
+        function setUsers(users) {
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+        function saveSession(email) {
+            sessionStorage.setItem('loggedInUser', email);
+        }
+        function clearSession() {
+            sessionStorage.removeItem('loggedInUser');
+        }
+        function getSession() {
+            return sessionStorage.getItem('loggedInUser');
+        }
+
+        // UI switching
+        function show(containerId) {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('signup-container').style.display = 'none';
+            document.getElementById('forgot-container').style.display = 'none';
+            document.getElementById('welcome-container').style.display = 'none';
+            document.getElementById(containerId).style.display = 'block';
+        }
+
+        // Show sign up form
+        document.getElementById('showSignUp').onclick = function(e) {
+            e.preventDefault();
+            show('signup-container');
+        };
+        // Show login form
+        document.getElementById('showLogin').onclick = function(e) {
+            e.preventDefault();
+            show('login-container');
+        };
+        // Show forgot password form
+        document.getElementById('forgotLink').onclick = function(e) {
+            e.preventDefault();
+            show('forgot-container');
+        };
+        // Back to login from forgot password
+        document.getElementById('backToLogin').onclick = function(e) {
+            e.preventDefault();
+            show('login-container');
+        };
+
+        // Sign Up logic
+        document.getElementById('signupForm').onsubmit = function(e) {
+            e.preventDefault();
+            const name = document.getElementById('signupName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim().toLowerCase();
+            const password = document.getElementById('signupPassword').value;
+            const errorDiv = document.getElementById('signupError');
+            const successDiv = document.getElementById('signupSuccess');
+            errorDiv.textContent = '';
+            successDiv.textContent = '';
+
+            if (password.length < 6) {
+                errorDiv.textContent = 'Password must be at least 6 characters.';
+                return;
+            }
+            let users = getUsers();
+            if (users.find(u => u.email === email)) {
+                errorDiv.textContent = 'Email already registered.';
+                return;
+            }
+            users.push({ name, email, password });
+            setUsers(users);
+            successDiv.textContent = 'Registration successful! You can now log in.';
+            setTimeout(() => {
+                show('login-container');
+            }, 1200);
+        };
+
+        // Login logic
+        document.getElementById('loginForm').onsubmit = function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+            const password = document.getElementById('loginPassword').value;
+            const errorDiv = document.getElementById('loginError');
+            errorDiv.textContent = '';
+            let users = getUsers();
+            let user = users.find(u => u.email === email && u.password === password);
+            if (!user) {
+                errorDiv.textContent = 'Invalid email or password.';
+                return;
+            }
+            saveSession(email);
+            showWelcome(user.name);
+        };
+
+        // Forgot password logic (simulated)
+        document.getElementById('forgotForm').onsubmit = function(e) {
+            e.preventDefault();
+            const email = document.getElementById('forgotEmail').value.trim().toLowerCase();
+            const users = getUsers();
+            const user = users.find(u => u.email === email);
+            const errorDiv = document.getElementById('forgotError');
+            const successDiv = document.getElementById('forgotSuccess');
+            errorDiv.textContent = '';
+            successDiv.textContent = '';
+            if (!user) {
+                errorDiv.textContent = 'Email not found.';
+                return;
+            }
+            successDiv.textContent = 'Password reset link sent to your email (simulated).';
+        };
+
+        // Logout
+        document.getElementById('logoutBtn').onclick = function() {
+            clearSession();
+            show('login-container');
+        };
+
+        // Show welcome screen if logged in
+        function showWelcome(name) {
+            document.getElementById('welcomeName').textContent = name;
+            show('welcome-container');
+        }
+
+        // On page load, check session
+        window.onload = function() {
+            const loggedInEmail = getSession();
+            if (loggedInEmail) {
+                const users = getUsers();
+                const user = users.find(u => u.email === loggedInEmail);
+                if (user) {
+                    showWelcome(user.name);
+                    return;
+                }
+            }
+            show('login-container');
+        };
+    </script>
+</body>
+</html>
