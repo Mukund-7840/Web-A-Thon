@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waste Management Hub</title>
+<style>
+    /* header */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #2e7d32;
+        color: white;
+        padding: 10px 20px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      .logo h1 {
+        font-size: 1.5em;
+        margin: 0;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 5px 10px;
+        transition: background 0.3s;
+      }
+      nav ul li a:hover {
+        background: #1b5e20;
+        border-radius: 5px;
+      }
+      /*header*/
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background:#D2EED4 ;
+        color: #333;
+    }
+    #heading {
+        background:#88D38C ;
+        color: white;
+        padding: 15px;
+        text-align: center;
+    }
+    
+    
+    section {
+        background: white;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+        color: #2e7d32;
+    }
+    .guide {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+    }
+    .guide-item {
+        background: #e8f5e9;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .guide-item img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 5px;
+    }
+    input, textarea, button {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        background: #2e7d32;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    iframe {
+        width: 100%;
+        height: 300px;
+        border: none;
+        border-radius: 5px;
+    }
+    /*footer*/
+      footer {
+        background: #1b5e20;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+      }
+      /*footer*/
+</style>
+</head>
+<body>
+     <header>
+      <div class="logo">
+        <img src="/Web-A-Thon/Images/goals.jpg" alt="Logo" />
+        <h1>Green-City-Connect</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/Web-A-Thon/home.html">Home</a></li>
+          <li><a href="/Web-A-Thon/eco-events.html">Events & Campaigns</a></li>
+          <li><a href="/Web-A-Thon/green-business.html">Green Businesses</a></li>
+          <li><a href="/Web-A-Thon/citizen.html">Citizen Tracker</a></li>
+          <li><a href="/Web-A-Thon/waste.html">Waste Hub</a></li>
+          <li><a href="/Web-A-Thon/discussion.html">Forum</a></li>
+          <li><a href="/Web-A-Thon/login.html">LogIn</a></li>
+        </ul>
+      </nav>
+    </header>
+
+
+    <h1 id="heading">Waste Management Hub</h1>
+    
+
+
+
+   
+
+    <!-- Waste Segregation Guide -->
+    <section>
+        <h2>Waste Segregation Guide</h2>
+        <div class="guide">
+            <div class="guide-item">
+                <img src="https://img.icons8.com/color/96/compost-heap.png" alt="Organic Waste">
+                <p><strong>Organic Waste</strong><br>Food scraps, garden waste</p>
+            </div>
+            <div class="guide-item">
+                <img src="https://img.icons8.com/color/96/plastic.png" alt="Recyclables">
+                <p><strong>Recyclables</strong><br>Plastics, paper, metals</p>
+            </div>
+            <div class="guide-item">
+                <img src="https://img.icons8.com/color/96/trash.png" alt="Non-Recyclable">
+                <p><strong>Non-Recyclable</strong><br>Sanitary waste, ceramics</p>
+            </div>
+            <div class="guide-item">
+                <img src="https://img.freepik.com/free-vector/radiation-waste-bin-flat-style_78370-7063.jpg?semt=ais_hybrid&w=740&q=80" alt="Hazardous Waste">
+                <p><strong>Hazardous Waste</strong><br>Batteries, chemicals</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bulk Waste Pickup Request Form -->
+    <section>
+        <h2>Request Bulk Waste Pickup</h2>
+        <form id="pickupForm">
+            <label>Your Name</label>
+            <input type="text" placeholder="Enter your name" required>
+
+            <label>Address</label>
+            <textarea placeholder="Enter your address" required></textarea>
+
+            <label>Waste Type</label>
+            <select required>
+                <option value="">Select type</option>
+                <option>Organic Waste</option>
+                <option>Recyclables</option>
+                <option>Non-Recyclable</option>
+                <option>Hazardous Waste</option>
+            </select>
+
+            <label>Pickup Date</label>
+            <input type="date" required>
+
+            <button type="submit">Submit Request</button>
+        </form>
+    </section>
+</div>
+
+</body>
+<br /><br />
+    <footer>© 2025 Green City Connect | Making Cities Sustainable </footer>
+</html>
