@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discussion Forum</title>
+    <style>
+      /* header */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #2e7d32;
+        color: white;
+        padding: 10px 20px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      .logo h1 {
+        font-size: 1.5em;
+        margin: 0;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 5px 10px;
+        transition: background 0.3s;
+      }
+      nav ul li a:hover {
+        background: #1b5e20;
+        border-radius: 5px;
+      }
+      /*header*/
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #d2eed4;
+        color: #333;
+      }
+
+      #heading {
+        text-align: center;
+        margin: 20px 0;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+      }
+      section {
+        background: white;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        color: #2e7d32;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+      }
+      input,
+      select,
+      textarea,
+      button {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        background: #2e7d32;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .thread {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+      .thread strong {
+        display: block;
+        font-size: 1.1em;
+      }
+      .votes {
+        display: flex;
+        gap: 10px;
+        margin-top: 5px;
+        align-items: center;
+      }
+      .vote-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2em;
+      }
+      /*footer*/
+      footer {
+        background: #1b5e20;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+      }
+      /*footer*/
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="/Web-A-Thon/Images/goals.jpg" alt="Logo" />
+        <h1>Green-City-Connect</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/Web-A-Thon/home.html">Home</a></li>
+          <li><a href="/Web-A-Thon/eco-events.html">Events & Campaigns</a></li>
+          <li>
+            <a href="/Web-A-Thon/green-business.html">Green Businesses</a>
+          </li>
+          <li><a href="/Web-A-Thon/citizen.html">Citizen Tracker</a></li>
+          <li><a href="/Web-A-Thon/waste.html">Waste Hub</a></li>
+          <li><a href="/Web-A-Thon/discussion.html">Forum</a></li>
+          <li><a href="/Web-A-Thon/login.html">LogIn</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <h1 id="heading">Discussion Forum</h1>
+
+    <div class="container">
+      <!-- New Post Form -->
+      <section>
+        <h2>Start a Discussion</h2>
+        <form id="postForm">
+          <label>Your Name</label>
+          <input
+            type="text"
+            id="userName"
+            placeholder="Enter your name"
+            required
+          />
+
+          <label>Category</label>
+          <select id="category" required>
+            <option value="">Select category</option>
+            <option>Transport</option>
+            <option>Housing</option>
+            <option>Energy</option>
+            <option>Water</option>
+          </select>
+
+          <label>Discussion Topic</label>
+          <input
+            type="text"
+            id="topic"
+            placeholder="Enter discussion title"
+            required
+          />
+
+          <label>Details</label>
+          <textarea
+            id="details"
+            placeholder="Explain your topic..."
+            required
+          ></textarea>
+
+          <button type="submit">Post</button>
+        </form>
+      </section>
+
+      <!-- Discussion Threads -->
+      <section>
+        <h2>Forum Threads</h2>
+        <div id="threadsList">
+          <!-- Threads will appear here -->
+        </div>
+      </section>
+    </div>
+    <br /><br />
+    <footer>© 2025 Green City Connect | Making Cities Sustainable</footer>
+  </body>
+</html>
