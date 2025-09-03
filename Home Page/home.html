@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green City Connect</title>
+
+    <style>
+      /* header */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #2e7d32;
+        color: white;
+        padding: 10px 20px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      .logo h1 {
+        font-size: 1.5em;
+        margin: 0;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 5px 10px;
+        transition: background 0.3s;
+      }
+      nav ul li a:hover {
+        background: #1b5e20;
+        border-radius: 5px;
+      }
+      /*header*/
+      /*main*/
+      body {
+        background-image: url(/Web-A-Thon/Images/background\ img.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        backdrop-filter: blur(5px);
+      }
+
+      .block-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin: 20px;
+        background-color: #caffbf;
+        border-radius: 50px;
+        text-align: right;
+        max-width: 1500px;
+        height: 170px;
+      }
+
+      .sdg-11-logo {
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+        position: absolute;
+        left: 40px;
+        top: px;
+      }
+
+      .sdg-11-text {
+        font-size: 29px;
+        color: black;
+        margin: 20px;
+        text-align: right;
+        padding-right: 20px;
+        padding-left: 120px;
+      }
+
+      .block-2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 20px;
+        background-color: #caffbf;
+        border-radius: 50px;
+      }
+
+      .key-features-1 {
+        width: 110px;
+        height: 110px;
+        border-radius: 20%;
+        position: absolute;
+        left: 40px;
+        top: 320px;
+      }
+
+      #key-text-1 {
+        font-size: 28px;
+        color: black;
+        margin: 20px;
+        text-align: right;
+        padding-right: 20px;
+        padding-left: 100px;
+      }
+
+      .key-features-2 {
+        width: 110px;
+        height: 110px;
+        border-radius: 20%;
+        position: absolute;
+        right: 40px;
+        top: 490px;
+      }
+
+      #key-text-2 {
+        font-size: 28px;
+        color: black;
+        margin: 20px;
+        text-align: left;
+        padding-right: 100px;
+        padding-left: 20px;
+      }
+
+      .key-features-3 {
+        width: 110px;
+        height: 110px;
+        border-radius: 30%;
+        position: absolute;
+        left: 40px;
+        top: 660px;
+      }
+
+      #key-text-3 {
+        font-size: 28px;
+        color: black;
+        margin: 20px;
+        text-align: right;
+        padding-right: 20px;
+        padding-left: 100px;
+      }
+
+      .main {
+        background-blend-mode: lighten;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+
+      .child {
+        width: 300px;
+        height: 400px;
+        background-color: #88d38c;
+        margin: 10px;
+        display: inline-block;
+        border-radius: 20px;
+        padding: 5px;
+        text-align: center;
+      }
+
+      .block-img {
+        width: 270px;
+        height: 270px;
+        border-radius: 20px;
+        padding-top: 15px;
+      }
+      /* main */
+      /*footer*/
+      footer {
+        background: #1b5e20;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+      }
+      /*footer*/
+
+      @media (max-width: 780px) {
+        main {
+          font-size: 1.2rem;
+          grid-template-columns: repeat(1, 1fr);
+          gap: 10px;
+          padding: 20px;
+        }
+      }
+
+      /* @media (min-width: 768px) {
+    body {
+        font-size: 1.35rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        padding: 24px 12px;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        font-size: 16px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 30px;
+    }
+}*/
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="/Web-A-Thon/Images/goals.jpg" alt="goal" />
+        <h1>Green-City-Connect</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/Web-A-Thon/home.html">Home</a></li>
+          <li><a href="/Web-A-Thon/eco-events.html">Events & Campaigns</a></li>
+          <li>
+            <a href="/Web-A-Thon/green-business.html">Green Businesses</a>
+          </li>
+          <li><a href="/Web-A-Thon/citizen.html">Citizen Tracker</a></li>
+          <li><a href="/Web-A-Thon/waste.html">Waste Hub</a></li>
+          <li><a href="/Web-A-Thon/discussion.html">Forum</a></li>
+          <li><a href="/Web-A-Thon/login.html">LogIn</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="block-1">
+        <img
+          class="sdg-11-logo"
+          src="/Web-A-Thon/Images/SDG 11 logo.png"
+          alt="SDG-11 Logo"
+        />
+        <p class="sdg-11-text">
+          <b>
+            SDG 11, or Sustainable Development Goal 11, focuses on making cities
+            and human settlements inclusive, safe, resilient, and sustainable.
+            It aims to address the challenges of rapid urbanization and promote
+            urban development that benefits all residents. This includes
+            ensuring access to basic services, affordable housing, sustainable
+            transport, and public spaces, while also reducing environmental
+            impact and preserving cultural and natural heritage.
+          </b>
+        </p>
+      </div>
+      <br />
+      <div class="block-2">
+        <img
+          class="key-features-1"
+          src="/Web-A-Thon/Images/energy use.avif"
+          alt="Energy_use"
+        />
+        <p id="key-text-1">
+          <b>Energy Use-</b>
+          Energy Use is the amount and type of energy consumed in homes,
+          transport, industries, and public services. Sustainable energy use
+          focuses on efficiency, reducing waste, and shifting to renewable
+          sources like solar and wind. This helps cut emissions, lower costs,
+          and improve a city’s environmental and economic resilience.
+        </p>
+        <br />
+        <img
+          class="key-features-2"
+          src="/Web-A-Thon/Images/waste-management-slide1.png"
+          alt="Waste Management"
+        />
+        <p id="key-text-2">
+          <b>Waste Management-</b>
+          Waste Management involves collecting, processing, recycling, and
+          safely disposing of waste from homes, businesses, and industries.
+          Sustainable waste practices reduce pollution, conserve resources, and
+          protect health. Strategies like recycling, composting, and
+          waste-to-energy conversion help cities minimize landfill use, lower
+          emissions, and create cleaner, healthier urban environments.
+        </p>
+        <br />
+        <img
+          class="key-features-3"
+          src="/Web-A-Thon/Images/air quality.webp"
+          alt="Air Quality"
+        />
+        <p id="key-text-3">
+          <b>Air Quality-</b>
+          Air Quality describes how clean or polluted the air is, based on
+          levels of harmful substances like particulate matter, nitrogen oxides,
+          and ozone. In cities, it is influenced by traffic, industries, and
+          waste burning. Good air quality supports health, reduces climate
+          impacts, and improves overall urban livability.
+        </p>
+      </div>
+
+      <div class="main">
+        <div class="child">
+          <img
+            id="block-3-img"
+            class="block-img"
+            src="/Web-A-Thon/Images/eco event.jpg"
+            alt="Eco-Events"
+          />
+          <a id="block-3-text" href="/Web-A-Thon/eco-events.html">
+            <div>
+              <h3>Eco-Events & Campaigns</h3>
+            </div>
+          </a>
+        </div>
+
+        <div class="child">
+          <img
+            id="block-4-img"
+            class="block-img"
+            src="/Web-A-Thon/Images/Green business.jpg"
+            alt="Green Business"
+          />
+          <a id="block-4-text" href="/Web-A-Thon/green-business.html">
+            <div>
+              <h3>Green Business Directory</h3>
+            </div>
+          </a>
+        </div>
+
+        <div class="child">
+          <img
+            id="block-5-img"
+            class="block-img"
+            src="/Web-A-Thon/Images/citizen action tracker.png"
+            alt="Citizen action Tracker"
+          />
+          <a id="block-5-text" href="/Web-A-Thon/citizen.html">
+            <div>
+              <h3>Citizen Action Tracker</h3>
+            </div>
+          </a>
+        </div>
+
+        <div class="child">
+          <img
+            id="block-6-img"
+            class="block-img"
+            src="/Web-A-Thon/Images/waste management.png"
+            alt="waste management"
+          />
+          <a id="block-6-text" href="/Web-A-Thon/waste.html">
+            <div>
+              <h3>Waste Management Hub</h3>
+            </div>
+          </a>
+        </div>
+
+        <div class="child">
+          <img
+            id="block-7-img"
+            class="block-img"
+            src="/Web-A-Thon/Images/discusss.jpg"
+            alt="discussion forum"
+          />
+          <a id="block-7-text" href="/Web-A-Thon/discussion.html">
+            <div>
+              <h3>Discussion Forum</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+    <br /><br />
+    <footer>© 2025 Green City Connect | Making Cities Sustainable</footer>
+  </body>
+</html>
